@@ -1,28 +1,30 @@
 "use client";
 
-import { useSession, signIn, signOut } from "next-auth/react";
-import Homepage from "./Homepage/page"; 
-export default function Component() {
-  const { data: session } = useSession();
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import Homepage from "./Homepage/page";
 
-  if (session) {
+export default function AuthComponent() {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  if (status === "loading") {
     return (
-      <div>
-        <div className="flex flex-row justify-between">
-          <p>Signed in as {session?.user?.email}</p>
-          <button onClick={() => signOut()}>Sign out</button>
-        </div>
-        <div>
-          <Homepage />
-        </div>
+      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <p className="text-lg font-medium">Loading...</p>
       </div>
     );
   }
 
-  return (
-    <>
-      Not signed in <br />
-      <button onClick={() => signIn()}>Sign in with GitHub</button>
-    </>
-  );
+  if (session) {
+    return (
+      <div className="mt-8 w-full">
+        <Homepage />
+      </div>
+    );
+  }
+
+  // Redirect to Login page
+  router.push("/Login");
+  return null; // Return null to prevent rendering during redirection
 }
