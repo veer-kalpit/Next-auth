@@ -6,7 +6,7 @@ import {
   deleteUser,
   updateUser,
   getUserDetails,
-} from "@/app/lib/blogService";
+} from "@/app/lib/list";
 
 const TABLE_HEAD = ["Name", "Email", "Phone Number", "Date", "Edit", "Delete"];
 

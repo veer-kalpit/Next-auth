@@ -17,7 +17,7 @@ export async function createUser(data) {
     window.location.reload();
     return response.data;
   } catch (error) {
-    console.log("Error creating blog:", error);
+    console.log("Error creating List", error);
     throw error;
   }
 }
@@ -31,7 +31,7 @@ export async function fetchUsers() {
     });
     return response.data.data;
   } catch (error) {
-    console.log("Error fetching blogs:", error);
+    console.log("Error fetching list:", error);
     throw error;
   }
 }
@@ -44,7 +44,7 @@ export async function fetchUserById() {
     });
     return response.data.data;
   } catch (error) {
-    console.log("Error fetching blogs:", error);
+    console.log("Error fetching list:", error);
     throw error;
   }
 }
@@ -62,7 +62,7 @@ export async function updateUser(id, updatedData) {
     );
     return response.data;
   } catch (error) {
-    console.log("Error updating blog:", error);
+    console.log("Error updating list:", error);
     throw error;
   }
 }
@@ -75,7 +75,7 @@ export async function getUserDetails(id) {
     });
     return response.data.data;
   } catch (error) {
-    console.log("Error getting blog details:", error);
+    console.log("Error getting list details:", error);
     throw error;
   }
 }
@@ -89,7 +89,7 @@ export async function deleteUser(id) {
     });
     window.location.reload();
   } catch (error) {
-    console.log("Error deleting blog:", error);
+    console.log("Error deleting list:", error);
     throw error;
   }
 }
