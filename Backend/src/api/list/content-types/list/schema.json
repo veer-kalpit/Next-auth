@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lists",
+  "info": {
+    "singularName": "list",
+    "pluralName": "lists",
+    "displayName": "list",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fname": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "number": {
+      "type": "biginteger"
+    },
+    "date": {
+      "type": "date"
+    }
+  }
+}
