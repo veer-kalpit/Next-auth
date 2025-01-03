@@ -11,10 +11,16 @@ const SignupPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch("/api/auth/signup", {
+    const res = await fetch(`http://localhost:1337/api/auth/local/register`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, password }),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}/api/logins`,
+      },
+      body: JSON.stringify({
+        identifier: email,
+        password: password,
+      }),
     });
 
     if (res.ok) {
